@@ -1,0 +1,7 @@
+PART 3: OMEPRAZOLE
+==================
+Omeprazole is a proton-pump inhibitor. It is activated in the acidic secretory canaliculus of active parietal cells and covalently inhibits the H+/K+-ATPase, the final step in gastric acid secretion. Its plasma half-life is short, but pump inhibition lasts much longer. Repeated doses are needed because not all pumps are active at the same time.
+
+Modeled maximum inhibition: 66%
+Modeled inhibition after seven treatment days: 65.9%
+Modeled recovery half-time after stopping: 24 hours

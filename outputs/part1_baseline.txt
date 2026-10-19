@@ -1,0 +1,7 @@
+PART 1: FASTING BASELINE
+========================
+Fasting gastric pH: 1.70
+Hydrogen-ion concentration: 19.95 mmol/L
+Fasting gastric fluid volume: 25 mL
+Initial free acid amount: 0.499 mmol
+Basal acid secretion: 3.3 mmol/h

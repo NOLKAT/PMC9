@@ -1,0 +1,169 @@
+PHYSIOLOGICAL MODELING CHALLENGE 9 — PAPERS FOR PARTS 1-3
+======================================================================
+
+This file maps each implemented part to the papers supporting its model
+parameters. Values described as "selected" or "calibrated" are modeling
+choices informed by the cited range, not direct measurements from one paper.
+
+
+PART 1 — FASTING BASELINE
+-------------------------
+
+1. Dressman JB, Berardi RR, Dermentzoglou LC, et al. Upper gastrointestinal
+   (GI) pH in young, healthy men and women. Pharmaceutical Research.
+   1990;7(7):756-761. DOI: 10.1023/A:1015827908309.
+   https://pubmed.ncbi.nlm.nih.gov/2395805/
+
+   Association with the model:
+   - Median fasting gastric pH = 1.7.
+   - After a standard meal, median gastric pH briefly rose to 6.7 and returned
+     toward the fasting value in less than two hours.
+
+2. Grimm M, Scholz E, Koziolek M, Kühn JP, Weitschies W. Interindividual and
+   intraindividual variability of fasted state gastric fluid volume and
+   gastric emptying of water. European Journal of Pharmaceutics and
+   Biopharmaceutics. 2018;127:309-317.
+   DOI: 10.1016/j.ejpb.2018.03.002.
+   https://pubmed.ncbi.nlm.nih.gov/29522898/
+
+   Association with the model:
+   - Mean resting gastric fluid volume after an overnight fast = 25 +/- 18 mL.
+   - The model uses 25 mL as its initial fasting fluid volume.
+
+3. Feldman M, Richardson CT, Lam SK, Samloff IM. Comparison of gastric acid
+   secretion rates and serum gastrin concentrations in duodenal ulcer patients
+   and normal subjects. Journal of Clinical Investigation.
+   1987;79(1):294-298. DOI: 10.1172/JCI112850.
+   https://pmc.ncbi.nlm.nih.gov/articles/PMC424132/
+
+   Association with the model:
+   - A mean basal acid secretion rate of about 3.3 mmol/h was reported for the
+     normal-subject group.
+   - The model uses 3.3 mmol/h for basal secretion.
+
+
+PART 2 — UNTREATED HEAVY MEAL
+------------------------------
+
+1. Fletcher J, Wirz A, Henry E, McColl KEL. Studies of regional postprandial
+   differences in pH within the stomach and gastroesophageal junction.
+   https://pubmed.ncbi.nlm.nih.gov/16416175/
+
+   Association with the model:
+   - A high-volume fatty dinner raised proximal gastric pH to about 4.9 and
+     mid/distal gastric pH to about 4.0.
+   - Its buffering effect kept pH above 4 for approximately 150 minutes.
+   - The model therefore uses a meal-buffered pH ceiling of 5.0 and targets a
+     prolonged heavy-meal buffering period. The empirical titration exponent
+     is calibrated to reproduce this duration; it is not a chemical pKa.
+
+2. Gardner JD, Ciociola AA, Robinson M. Measurement of meal-stimulated gastric
+   acid secretion by in vivo gastric autotitration. Journal of Applied
+   Physiology. 2002;92(2):427-434. DOI: 10.1152/japplphysiol.00956.2001.
+   https://pubmed.ncbi.nlm.nih.gov/11796648/
+
+   Association with the model:
+   - The standard solid meal required 119 mmol HCl for titration to pH 2.
+   - Median meal-stimulated secretion was 60 mmol/h, with an interquartile
+     range of 40-71 mmol/h.
+   - The model uses the measured 119 mmol buffer capacity and a selected peak
+     secretion rate of 40 mmol/h.
+
+3. Walsh JH, Richardson CT, Fordtran JS. Variable contribution of gastrin to
+   gastric acid secretion after a meal in humans. Gastroenterology.
+   1987;92(1):179-184.
+   https://pubmed.ncbi.nlm.nih.gov/3557000/
+
+   Association with the model:
+   - Meal-stimulated acid secretion averaged 24.2 +/- 2.4 mmol/h.
+   - Together with Gardner et al.'s 60 mmol/h median, this supports selecting
+     40 mmol/h as an intermediate heavy-meal peak rather than claiming it is
+     a universal measured value.
+
+4. Richardson CT, Walsh JH, Cooper KA, Feldman M, Fordtran JS. Studies on the
+   mechanisms of food-stimulated gastric acid secretion in normal human
+   subjects. Journal of Clinical Investigation. 1976;58(3):623-631.
+   https://pubmed.ncbi.nlm.nih.gov/956391/
+
+   Association with the model:
+   - The study used 500- and 750-mL meals and showed that gastric distension is
+     an important stimulus for acid secretion.
+   - The challenge model uses 750 mL to represent a heavy meal; 500 mL is the
+     natural comparison for a more typical experimental meal.
+
+5. Marciani L, Cox EF, Hoad CL, et al. Additive effects of gastric volumes and
+   macronutrient composition on the sensation of postprandial fullness in
+   humans. European Journal of Clinical Nutrition. 2015;69:380-384.
+   DOI: 10.1038/ejcn.2014.194.
+   https://pmc.ncbi.nlm.nih.gov/articles/PMC4351404/
+
+   Association with the model:
+   - Approximately 500-mL MRI meals had half-emptying times of 99 +/- 8 and
+     122 +/- 10 minutes and returned near baseline volume within about 3 hours.
+   - The model uses a slower 150-minute half-time as an explicit extrapolation
+     for a larger 750-mL heavy meal. This is a modeling assumption, not a value
+     directly measured in this paper.
+
+
+PART 3 — WHAT OMEPRAZOLE IS AND HOW ITS EFFECT CHANGES WITH TIME
+----------------------------------------------------------------
+
+1. Shin JM, Sachs G. Pharmacology of proton pump inhibitors. Current
+   Gastroenterology Reports. 2008;10(6):528-534.
+   DOI: 10.1007/s11894-008-0098-4.
+   https://pmc.ncbi.nlm.nih.gov/articles/PMC2855237/
+
+   Association with the model:
+   - Omeprazole is an acid-activated prodrug that covalently inhibits the
+     parietal-cell H+/K+-ATPase.
+   - The plasma half-life is about one hour, but inhibition persists because
+     the pump is covalently modified.
+   - Steady-state inhibition requires about 2-3 days of repeated dosing.
+   - Optimized once-daily dosing was estimated to inhibit about 66% of maximal
+     acid output; the model uses 66% as its asymptote.
+   - The review reports an estimated human recovery half-time of approximately
+     24 hours after omeprazole inhibition; the model uses 24 hours.
+
+   Suitability note:
+   This is a strong review for the mechanism and overall model structure. The
+   66% value is a calculated estimate, and several kinetic values summarize
+   earlier studies, so the primary PK/PD paper below is included as support.
+
+2. Katashima M, Yamamoto K, Tokuma Y, Hata T, Sawada Y, Iga T. Comparative
+   pharmacokinetic/pharmacodynamic analysis of proton pump inhibitors
+   omeprazole, lansoprazole and pantoprazole in humans. European Journal of
+   Drug Metabolism and Pharmacokinetics. 1998;23(1):19-26.
+   https://pubmed.ncbi.nlm.nih.gov/9625268/
+
+   Association with the model:
+   - The apparent turnover rate constant for the omeprazole effect corresponded
+     to an inhibitory-effect half-life below approximately 27.5 hours.
+   - This supports using a roughly 24-hour recovery half-time instead of making
+     omeprazole switch off immediately when plasma drug disappears.
+
+3. Hürlimann S, Abbühl B, Inauen W, Halter F. Comparison of acid inhibition by
+   either oral high-dose ranitidine or omeprazole. Alimentary Pharmacology &
+   Therapeutics. 1994;8(2):193-201. DOI: 10.1111/j.1365-2036.1994.tb00278.x.
+   https://pubmed.ncbi.nlm.nih.gov/8038351/
+
+   Association with the model:
+   - Omeprazole inhibition increased over the first treatment week, unlike the
+     rapid first-day peak observed with the H2-receptor antagonist ranitidine.
+   - This supports showing a slow multiday onset in Part 3.
+
+
+MODEL CAUTIONS
+--------------
+
+- The untreated meal model is a one-compartment teaching model. Real gastric
+  pH varies by location, and an acidic proximal pocket may coexist with more
+  strongly buffered distal contents.
+- The pH conversion before buffer exhaustion is an empirical titration curve,
+  not a full chemical buffer model with measured pKa values. Its exponent is
+  calibrated against the approximately 150-minute pH-above-4 observation.
+- Secreted acid first consumes the remaining food-buffer capacity. Only acid
+  produced after that capacity is exhausted enters the free-acid balance.
+- The secretion and emptying time constants should be included in a later
+  sensitivity analysis because they are calibrated assumptions.
+- Part 3 describes omeprazole and its pump-level time course. The treated heavy
+  meal belongs to Part 4 and is intentionally not implemented yet.
